@@ -1,0 +1,2 @@
+module GdesignHelper
+end

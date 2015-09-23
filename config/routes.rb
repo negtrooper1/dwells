@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'writing/oszine'
 
   get 'gdesign/gamehome'
+  get 'gdesign/star'
+  get 'gdesign/wisp'
 
   get 'dart/arthome'
 

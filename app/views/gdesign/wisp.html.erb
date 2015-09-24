@@ -23,6 +23,9 @@ var MAXLINES = 20; // the maximum number of lines to appear on the screen
 function preload() {
     // Set the color of our UI
     game.stage.backgroundColor = 0xffffff;
+
+    // Load the scenes in order
+    game.load.text('introTxt', 'http://dwells.co/gdesign/intro');
 }
 
 var textStyle = { font: '12px Arial', align: 'center'};
@@ -33,6 +36,7 @@ var minutes = 0;
 var plotButton;
 var plotButtonText;
 var introDone = false;
+var logBuffer;
 
 function create() {
     // Start the timer
@@ -45,6 +49,12 @@ function create() {
     intro();
     plotButton.inputEnabled = true;
     plotButton.events.onInputDown.add(plotDown, this);
+
+    // Initially set up the log buffer
+    var tLog = game.cache.getText('introTxt');
+    logBuffer = tLog.split('\n');
+    // Get rid of all the garbage html
+    stripBuffer();
 }
 
 function update() {
@@ -61,8 +71,25 @@ function update() {
     }
 }
 
+/*
+* Strips down all of the garbage out of the logBuffer
+*/ 
+function stripBuffer() {
+    while (logBuffer[0].indexOf("BEGIN") < 0) {
+	logBuffer.splice(0,1);
+    }
+    logBuffer.splice(0,1);
+    logBuffer.splice(-4, 4);
+}
+
+/*
+* Advances the plot on pushing the button
+*/
 function plotDown(item) {
-    addLine("You continue to fall.");
+    // Render whatever is next in the logBuffer, and remove it from the buffer
+    addLine(logBuffer[0]);
+    logBuffer.splice(0, 1);
+    
 }
 
 /*

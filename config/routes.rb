@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'gdesign/gamehome'
   get 'gdesign/star'
   get 'gdesign/wisp'
+  get 'gdesign/intro'
 
   get 'dart/arthome'
 

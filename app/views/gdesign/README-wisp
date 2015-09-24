@@ -1,0 +1,29 @@
+/  \    /  \__| ____________  
+\   \/\/   /  |/  ___/\____ \ 
+ \        /|  |\___ \ |  |_> >
+  \__/\  / |__/____  >|   __/ 
+       \/          \/ |__| 
+
+************************************************
+
+
+Wisp is a text-based adventure game inspired by a Dark Room and others. 
+
+The core functionality of the game is built into the wisp.html.erb file, which is mostly javascript built off of
+the phaser.js library for making lightweight games.
+
+The plot of the game is stored in html files, currently located in the same directory as the js-core. Don't look at the plot
+files if you don't want to be spoiled. Consider yourself warned. 
+
+FILES:
+wisp.html.erb
+	
+	Broken up into a number of sections: Global variables and preload data, Event Methods, Helpers, and Plot Events. 
+
+intro.html.erb
+
+	Plot file for the prologue
+
+
+************************************************
+Copyright dwells.co 2015

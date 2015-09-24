@@ -14,7 +14,9 @@
 
 <script type="text/javascript">
 
-// GLOBALS
+/******************************************
+* GLOBALS and PRELOAD DATA
+******************************************/
 var game = new Phaser.Game(800, 600, Phaser.AUTO, 'wisp-game', { preload: preload, create: create, update: update });
 var style = {font: "16px Georgia", fill: "#000000", align: "left" }; // font styles
 var log = []; // main text log
@@ -49,6 +51,8 @@ function create() {
     intro();
     plotButton.inputEnabled = true;
     plotButton.events.onInputDown.add(plotDown, this);
+    plotButton.events.onInputOver.add(plotOver, this);
+    plotButton.events.onInputOut.add(plotOut, this);
 
     // Initially set up the log buffer
     var tLog = game.cache.getText('introTxt');
@@ -71,16 +75,10 @@ function update() {
     }
 }
 
-/*
-* Strips down all of the garbage out of the logBuffer
-*/ 
-function stripBuffer() {
-    while (logBuffer[0].indexOf("BEGIN") < 0) {
-	logBuffer.splice(0,1);
-    }
-    logBuffer.splice(0,1);
-    logBuffer.splice(-4, 4);
-}
+
+/*********************************************
+* EVENT METHODS
+*********************************************/
 
 /*
 * Advances the plot on pushing the button
@@ -90,6 +88,30 @@ function plotDown(item) {
     addLine(logBuffer[0]);
     logBuffer.splice(0, 1);
     
+}
+
+function plotOver(item) {
+
+}
+
+function plotOut(item) {
+
+}
+
+
+/********************************************
+* HELPERS
+********************************************/
+
+/*
+* Strips down all of the garbage out of the logBuffer
+*/ 
+function stripBuffer() {
+    while (logBuffer[0].indexOf("BEGIN") < 0) {
+	logBuffer.splice(0,1);
+    }
+    logBuffer.splice(0,1);
+    logBuffer.splice(-4, 4);
 }
 
 /*
@@ -148,7 +170,7 @@ function updateTimer() {
 
 function intro() {   
     addLine("You're falling fast.");
-    fadeIn(plotButton, 1000);
+    fadeIn(plotButton, 4000);
 }
 
 </script>

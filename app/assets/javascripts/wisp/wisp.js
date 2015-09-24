@@ -3,10 +3,13 @@
  * GLOBALS and PRELOAD DATA
  *
  ******************************************/
-var game = new Phaser.Game(800, 600, Phaser.AUTO, 'wisp-game', { preload: preload, create: create, update: update });
+var game = new Phaser.Game(800, 600, Phaser.AUTO, "wispDiv", { preload: preload, create: create, update: update });
 var style = {font: "18px Georgia", fill: "#000000", align: "left" }; // font styles
 var log = []; // main text log
 var MAXLINES = 20; // the maximum number of lines to appear on the screen
+
+// STATES
+game.state.add('intro', introState)
 
 function preload() {
     // Set the color of our UI
@@ -23,7 +26,6 @@ var seconds = 0;
 var minutes = 0;
 var plotButton;
 var plotButtonText;
-var introDone = false;
 var logBuffer;
 
 function create() {
@@ -60,6 +62,10 @@ function update() {
 		log[i].destroy();	    
 	}
 	log.splice(0,log.length);
+    }
+
+    if (logBuffer.length == 0) {
+	game.state.start('intro');
     }
 }
 

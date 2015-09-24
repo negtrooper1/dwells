@@ -53,7 +53,9 @@ function update() {
     //Garbage collect the log
     if (log.length > MAXLINES) {
 	for (var i = 0; i<log.length; i++) {
-	    log[i].destroy();	    
+	    fadeOut(log[i], 1000);
+	    if (log[i].alpha == 0)
+		log[i].destroy();	    
 	}
 	log.splice(0,log.length);
     }

@@ -4,7 +4,7 @@
  *
  ******************************************/
 var game = new Phaser.Game(800, 600, Phaser.AUTO, 'wisp-game', { preload: preload, create: create, update: update });
-var style = {font: "16px Georgia", fill: "#000000", align: "left" }; // font styles
+var style = {font: "18px Georgia", fill: "#000000", align: "left" }; // font styles
 var log = []; // main text log
 var MAXLINES = 20; // the maximum number of lines to appear on the screen
 
@@ -16,7 +16,7 @@ function preload() {
     game.load.text('introTxt', 'http://dwells.co/gdesign/intro');
 }
 
-var textStyle = { font: '12px Arial', align: 'center'};
+var textStyle = { font: '12px Georgia', align: 'center'};
 var timer;
 var milliseconds = 0;
 var seconds = 0;
@@ -34,7 +34,7 @@ function create() {
 
     // Add the button for advancing plot
     plotButtonText = "fall";
-    plotButton = game.add.text(32, 32, plotButtonText, {font: "20px Georgia", fill: "#000000", align: "center"} );
+    plotButton = game.add.text(32, 32, plotButtonText, {font: "24px Georgia", fill: "#000000", align: "center"} );
     plotButton.alpha = 0;
     intro();
     plotButton.inputEnabled = true;

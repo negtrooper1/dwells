@@ -15,8 +15,10 @@
 <script type="text/javascript">
 
 /******************************************
-* GLOBALS and PRELOAD DATA
-******************************************/
+ *
+ * GLOBALS and PRELOAD DATA
+ *
+ ******************************************/
 var game = new Phaser.Game(800, 600, Phaser.AUTO, 'wisp-game', { preload: preload, create: create, update: update });
 var style = {font: "16px Georgia", fill: "#000000", align: "left" }; // font styles
 var log = []; // main text log
@@ -43,6 +45,8 @@ var logBuffer;
 function create() {
     // Start the timer
     timer = game.add.text(700, 32, '00:00', textStyle);
+    timer.alpha = 0;
+    fadeIn(timer);
 
     // Add the button for advancing plot
     plotButtonText = "fall";
@@ -77,12 +81,14 @@ function update() {
 
 
 /*********************************************
-* EVENT METHODS
-*********************************************/
+ *
+ * EVENT METHODS
+ *
+ *********************************************/
 
 /*
-* Advances the plot on pushing the button
-*/
+ * Advances the plot on pushing the button
+ */
 function plotDown(item) {
     // Render whatever is next in the logBuffer, and remove it from the buffer
     addLine(logBuffer[0]);
@@ -90,22 +96,30 @@ function plotDown(item) {
     
 }
 
+/*
+ * Tweens the button once on mouseover.
+ */ 
 function plotOver(item) {
-
+    game.add.tween(plotButton).to( { alpha: 1 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);   
 }
 
+/*
+ * Restore the button to a slight fade.
+ */
 function plotOut(item) {
-
+    game.add.tween(plotButton).to( { alpha: 0.6 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
 }
 
 
 /********************************************
-* HELPERS
-********************************************/
+ *
+ * HELPERS
+ *
+ ********************************************/
 
 /*
-* Strips down all of the garbage out of the logBuffer
-*/ 
+ * Strips down all of the garbage out of the logBuffer
+ */ 
 function stripBuffer() {
     while (logBuffer[0].indexOf("BEGIN") < 0) {
 	logBuffer.splice(0,1);
@@ -115,8 +129,8 @@ function stripBuffer() {
 }
 
 /*
-* Fade text in given the text and time in ms to fade over
-*/ 
+ * Fade text in given the text and time in ms to fade over
+ */ 
 function fadeIn(text, time) {
     game.add.tween(text).to( { alpha: 1 }, time, Phaser.Easing.Linear.None, true, 0, 0, false);
 }
@@ -126,10 +140,10 @@ function fadeOut(text, time) {
 }
 
 /*
-* Simply adds a line to the log. 
-*/ 
+ * Simply adds a line to the log. 
+ */ 
 function addLine(line) {
-    var l = game.add.text(32, (log.length % MAXLINES) * 16 + 96, line, style);   
+    var l = game.add.text(32, (log.length % MAXLINES) * 20 + 96, line, style);   
     l.alpha = 0;
     fadeIn(l, 1000);
     log.push(l);    
@@ -158,19 +172,22 @@ function updateTimer() {
 }
 
 /*****************************************************************************
-*
-* BELOW HERE ARE PLOT EVENTS
-*n
-* MAJOR SPOILER ALERT
-* 
-* DO NOT READ IF YOU DON'T WANT TO SPOIL THE GAME
-*
-******************************************************************************/
+ *
+ * BELOW HERE ARE PLOT EVENTS
+ *
+ * MAJOR SPOILER ALERT
+ * 
+ * DO NOT READ IF YOU DON'T WANT TO SPOIL THE GAME
+ *
+ ******************************************************************************/
 
 
 function intro() {   
-    addLine("You're falling fast.");
-    fadeIn(plotButton, 4000);
+    var l = game.add.text(32, (log.length % MAXLINES) * 20 + 96, "You're falling fast.", style);
+    l.alpha = 0;
+    game.add.tween(l).to( { alpha: 1 }, 1000, Phaser.Easing.Linear.None, true, 1000, -1, true);
+    log.push(l);
+    game.add.tween(plotButton).to( { alpha: 0.6 }, 3000, Phaser.Easing.Linear.None, true, 0, 0, false);
 }
 
 </script>

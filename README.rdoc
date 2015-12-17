@@ -13,6 +13,3 @@ TODO:
 --update writing
 
 --upload RGB to game design
-
-
-<tt>rake doc:app</tt>.

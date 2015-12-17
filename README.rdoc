@@ -3,10 +3,15 @@
 Devon Wells' Creative Portfolio
 
 TODO: 
+
 --update images
+
 --fix OSpoetry layout
+
 --reconfigure db
+
 --update writing
+
 --upload RGB to game design
 
 

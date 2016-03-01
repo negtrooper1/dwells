@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   get 'writing/whome'
-  get 'writing/2'
   get 'writing/oszine'
 
   get 'gdesign/gamehome'

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'posts/index'
+
   get 'writing/whome'
   get 'writing/oszine'
 
@@ -12,6 +14,8 @@ Rails.application.routes.draw do
   get 'webdesign/wdhome'
 
   get 'welcome/index'
+
+  resources :posts
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

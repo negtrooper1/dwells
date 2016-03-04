@@ -5,34 +5,40 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= favicon_link_tag 'favicon.ico' %>
+
+  <!-- Custom Fonts -->
+  <link href="../assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
 </head>
 <body>
-    <!-- Navigation 
-	 needs work to work on all pages without code copypasta
+    <!-- Navigation -->
+    <!--needs work to work on all pages without code copypasta -->
     <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
     <nav id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
             <li class="sidebar-brand">
-                <a href="#top"  onclick = $("#menu-close").click(); >../dwells</a>
+                <a href="/#top"  onclick = $("#menu-close").click(); >../dwells</a>
             </li>
             <li>
-                <a href="#top" onclick = $("#menu-close").click(); >Home</a>
+                <a href="/#top" onclick = $("#menu-close").click(); >Home</a>
             </li>
             <li>
-                <a href="#about" onclick = $("#menu-close").click(); >About</a>
+                <a href="/#about" onclick = $("#menu-close").click(); >About</a>
             </li>
             <li>
-                <a href="#expressions" onclick = $("#menu-close").click(); >Expressions</a>
+                <a href="/#expressions" onclick = $("#menu-close").click(); >Expressions</a>
             </li>
             <li>
-                <a href="#contact" onclick = $("#menu-close").click(); >Contact</a>
+                <a href="/#contact" onclick = $("#menu-close").click(); >Contact</a>
             </li>
         </ul>
     </nav>
 
     <!-- Custom Theme JavaScript 
-	 needs work to work on all pages without code copypasta
+	 needs work to work on all pages without code copypasta -->
     <script>
     // Closes the sidebar menu
     $("#menu-close").click(function(e) {
@@ -62,16 +68,46 @@
             }
         });
     });
-    </script> -->
 
-    <!-- jQuery -->
-    <script src="assets/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="assets/bootstrap.min.js"></script>
-
+    // colorbox assignments
+    $(document).ready(function(){
+    $(".thumbnail").colorbox({rel:'thumbnail'});
+    });
+    </script>
 
 <%= yield %>
 
+<!-- Footer -->
+<footer>
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 text-center">
+          <h4><strong>Contact</strong>
+          </h4>
+          <ul class="list-unstyled">
+            <li><i class="fa fa-phone fa-fw"></i> (540) 819-6140</li>
+            <li><i class="fa fa-envelope-o fa-fw"></i><a href="mailto:devon.wellsa@gmail.com">devon.wellsa@gmail.com</a>
+            </li>
+          </ul>
+          <br>
+          <ul class="list-inline">
+            <li>
+              <a href="https://www.facebook.com/devon.wells.31"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
+            </li>
+            <li>
+              <a href="https://twitter.com/NofynAleksandre"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
+            </li>
+            <li>
+              <a href="https://docs.google.com/document/d/1VJa2VooIuQrGTL6LD09Q23189GYPqbFaevYiHHXS4Xk/pub"><i class="fa fa-file-pdf-o fa-fw fa-3x"></i></a>
+            </li>
+          </ul>
+          <hr class="small">
+          <p class="text-muted">Copyright &copy; dwells.co 2015</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</footer>
 </body>
 </html>

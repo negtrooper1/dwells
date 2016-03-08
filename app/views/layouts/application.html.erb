@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Dwells</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <%= favicon_link_tag 'favicon.ico' %>
+    <head>
+	<title>wells</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
+	<%= favicon_link_tag 'favicon.ico' %>
 
-  <!-- Custom Fonts -->
-  <link href="../assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+	<!-- Custom Fonts -->
+	<link href="../assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
-</head>
-<body>
-  <%= render "layouts/nav" %>
-  <%= yield %>
-  <%= render "layouts/footer" %>
-</body>
+    </head>
+    <body>
+	<%= render "layouts/nav" %>
+	<% flash.each do |message_type, message| %>
+	    <div class="alert alert-<%= message_type %>"><%= message %></div>
+	<% end %>
+	
+	<%= yield %>
+	<%= render "layouts/footer" %>
+    </body>
 </html>

@@ -4,12 +4,21 @@ Devon Wells' Creative Portfolio
 
 TODO: 
 
---update images
+in some order of pseudo-priority
 
---fix OSpoetry layout
+-add websites table to db and write websites controller for dynamic website content display
+     note the table is built but it needs an image url attachment or something
+-do the same thing for images
+-do the same thing for writing, which will be more complicated because it requires links to googledocs?
 
---reconfigure db
+-implement login/logout for users and write destroy section of user controller
 
---update writing
+-implement ability for users to upload websites, images for art gallery, and writing, but really 
+only my account will be able to do that, so set security permissions for the admin basically,
+i.e. me, also i will be the only person uploading to my portfolio obviously so...
 
---upload RGB to game design
+-clean up code
+
+-update CSS and style things to look less like a layout and more like me
+-get some sick games up here
+-feelsgoodman

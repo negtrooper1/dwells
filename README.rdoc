@@ -8,6 +8,9 @@ in some order of pseudo-priority
 
 -add websites table to db and write websites controller for dynamic website content display
      note the table is built but it needs an image url attachment or something
+
+     skeleton is built, just need to update index to properly render all of the entries in the db
+
 -do the same thing for images
 -do the same thing for writing, which will be more complicated because it requires links to googledocs?
 

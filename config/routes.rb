@@ -13,8 +13,6 @@ Rails.application.routes.draw do
 
   get 'dart/arthome'
 
-  get 'webdesign/wdhome'
-
   get 'welcome/index'
 
 

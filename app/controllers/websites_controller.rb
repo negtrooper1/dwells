@@ -1,10 +1,27 @@
 class WebsitesController < ApplicationController
+  before_action :find_website, only: [:show, :edit, :update, :destroy]
+
   def index
-    @website = Website.all.order("created_at DESC")
+    @websites = Website.all.order("created_at ASC")
   end
 
   def show
-    @website = Website.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @website.update(website_params)
+      redirect_to @website
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @website.destroy
+    redirect_to '/websites'
   end
 
   def new
@@ -25,5 +42,9 @@ class WebsitesController < ApplicationController
 2
   def website_params
     params.require(:website).permit(:title, :body, :site_url, :subtitle, :logo_link)
+  end
+
+  def find_website
+    @website = Website.find(params[:id])
   end
 end

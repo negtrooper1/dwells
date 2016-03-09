@@ -10,6 +10,9 @@ in some order of pseudo-priority
      note the table is built but it needs an image url attachment or something
 
      skeleton is built, just need to update index to properly render all of the entries in the db
+     index updated to properly render, and CRUD functionality is nearly complete, just need to write a destroy view at some point
+     and also probably clean up the individual pages
+     still insecure, anyone can add websites currently, need to implement login/logout and authentication to fix this
 
 -do the same thing for images
 -do the same thing for writing, which will be more complicated because it requires links to googledocs?

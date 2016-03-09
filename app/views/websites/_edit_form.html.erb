@@ -1,0 +1,18 @@
+<%= form_for @website do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control' %>
+    
+    <%= f.label :subtitle %>
+    <%= f.text_field :subtitle, class: 'form-control'%>
+    
+    <%= f.label :site_url %>
+    <%= f.text_field :site_url, class: 'form-control' %>
+    
+    <%= f.label :logo_link %>
+    <%= f.text_field :logo_link, class: 'form-control' %>
+    
+    <%= f.label :body %>
+    <%= f.text_area :body, class: 'form-control' %>
+    
+    <%= f.submit "Update", class: "btn btn-primary" %>
+<% end %>

@@ -1,83 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Web Design Home</title>
-</head>
-
-<body>
-    <!-- Page Content -->
-    <div class="container">
-        <!-- Page Heading -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">Web Design 
-                    <small>projects I have contributed to</small>
-                </h1>
-            </div>
+<div class="container">
+    <!-- Page Heading -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Web Design 
+                <small>projects</small>
+            </h1>
         </div>
-        <!-- /.row -->
-
-        <!-- Project One -->
-        <div class="row" id="swap">
-            <div class="col-md-7">
-                <a href="http://www.bookcoop.org">
-                    <img class="img-responsive" src="http://bookcoop.org/images/logo-header.svg" alt="SWAP image can't be displayed">
-                </a>
-            </div>
-            <div class="col-md-5">
-                <h3>Swap</h3>
-                <h4>the Oberlin Book Coop</h4>
-                <p>SWAP, the Oberlin Book Cooperative, has a mission to serve the Oberlin student body and community books (especially expensive textbooks) for points instead of big bucks. Points are gained by donating books to the coop or by becoming a member and helping run the coop. You can read more on their website. <br><br>As a founding member and the lead technical organizer of SWAP, I built their original website back when I was still just learning html, php, SQL, and css, along with some back-end help from founding member Joe Martin. I also helped Andres Cuervo restructure the new site, though the design is credited to him. Both can be found at the links below. </p>
-		<br>
-                <a class="btn btn-primary" href="http://www.bookcoop.org">View New Site<i class="fa fa-arrow-right"></i></a>
-		<a class="btn btn-primary" href="http://www.bookcoop.org/rainbowindex">View Old Site<i class="fa fa-arrow-right"></i></a>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <hr>
-
-        <!-- Project Two -->
-        <div class="row">
-            <div class="col-md-7" id="oscaimg">
-                <a href="http://osca.meteor.com">
-                    <img class="img-responsive" src="http://osca.meteor.com/assets/img/logo.png" alt="osca.meteor image can't be displayed">
-                </a>
-            </div>
-            <div class="col-md-5">
-                <h3>OSCA.meteor</h3>
-                <h4>an app for improving OSCA</h4>
-                <p>The Oberlin Student Cooperative Association, OSCA, a non-profit and the largest student run organization on Oberlin's campus, has provided at-cost dining and housing to students since 1950. OSCA serves 615 students, 22% of Oberlin's student body, fairly smoothly, but as a massive student run organization, sometimes there are too many students and not enough organization. While at a MHacks, a large student hackaton held in Ann Arbor, colleague Luke Burns and I set out to address and streamline some of the more tedious organizational issues of OSCA. OSCA.meteor.com is our attempt at this.<br><br>Designed with the meteor API, Twitter Bootstrap, and a lot of help from node.js, osca.meteor allowed members to sign in with their oberlin.edu account and do a number of tasks, including requesting a personal saved plate at a meal from the Head Cook if they were going to be late, a task that in the past has caused headaches for all parties involved. Additionally, it: set up a simple system for requests for meals or specific foods to be purchased for the coop by the coop's Food Buyers, allowed for coops to notify classmates and members of other coops if there were a large volume of leftovers after a meal, replace shifts for members who were sick or unable to complete a shift, and more.<br><br>Despite being awesome, the site is no longer in use and much of the functionality has been disabled, as Luke and I grew busy with finals and didn't have time to fully integrate it into the coops (integrating anything in the coops can be difficult). I would love to see a resurgence in the coming year, though, if there are any dedicated OSCAns reading this.</p>
-                <a class="btn btn-primary" href="http://osca.meteor.com">View Site<i class="fa fa-arrow-right"></i></a>
-            </div>
-        </div>
-        <!-- /.row -->
-
-	<hr>
-
-        <!-- Project Three -->
-        <div class="row">
-            <div class="col-md-7" id="dco">
-                <a href="http://dwells.co">
-                    <img class="img-responsive" src="../assets/bg.jpg" alt="dwells.co image can't be displayed">
-                </a>
-            </div>
-            <div class="col-md-5">
-                <h3>dwells.co</h3>
-                <h4>my very own portfolio</h4>
-                <p>Built with Ruby on Rails and Twitter Bootstrap on a web server that I rent from <a href="http://www.digitalocean.com">digital ocean</a> running Ubuntu 14.04. Credit is due to Jquery-colorbox for helping with on-page image viewing. I also owe a big thanks to Jake Carr for his brilliant photograph that provided the backdrop and inspiration for the background image on the homepage.</p>
-                <a class="btn btn-primary" href="http://dwells.co">View Site<i class="fa fa-arrow-right"></i></a>
-            </div>
-        </div>
-        <!-- /.row -->
-        <hr>
     </div>
-</body>
-
-</html>
+    
+    <% @websites.each do |website| %>
+	<div class="row">
+	    <div class="col-md-7", id=<%= website.title + "_col" %>>
+		<%= link_to(website.site_url) do %>
+		    <%= image_tag website.logo_link, id: website.title + "_img", class: "img-responsive" %>
+		<% end %>
+	    </div>
+	    <div class="col-md-5">
+		<h3><%= website.title %></h3>
+		<h4><%= website.subtitle %></h4>
+		<p><%= website.body %></p>
+		<br>
+		<%= link_to(website.site_url, class: "btn btn-primary") do %>
+		    View Site<i class="fa fa-arrow-right"></i>
+		<% end %>
+	    </div>
+	</div>
+	<hr>
+	
+    <% end %>
+</div>

@@ -4,9 +4,6 @@ Rails.application.routes.draw do
   resources :users
   resources :writing
 
-  get 'writing/whome'
-  get 'writing/oszine'
-
   get 'gdesign/gamehome'
   get 'gdesign/star'
   get 'gdesign/wisp'

@@ -1,4 +1,4 @@
-class WritingController < ApplicationController
+class WritingsController < ApplicationController
   before_action :find_writing, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -20,19 +20,19 @@ class WritingController < ApplicationController
   end
 
   def new
-    @writing = Website.new
+    @writing = Writing.new
   end
 
   def destroy
     @writing.destroy
-    redirect_to '/writing'
+    redirect_to '/writings'
   end
 
   def create
     @writing = Writing.new(writing_params)
     if @writing.save
       flash[:success] = "Writing added to db!"
-      redirect_to 'writing'
+      redirect_to '/writings'
     else
       render 'new'
     end

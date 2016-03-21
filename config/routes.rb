@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :websites
   resources :posts
   resources :users
-  resources :writing
+  resources :writings
 
   get 'gdesign/gamehome'
   get 'gdesign/star'

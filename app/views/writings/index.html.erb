@@ -1,0 +1,17 @@
+<body>
+    <!-- Page Content -->
+    <div class="container">
+	<div class="text-vertical-center">
+            <div class="row" id="poetry">
+		<div class="col-lg-10 col-lg-offset-1">
+		    <h2>Poetry</h2>
+		</div>
+	    </div>
+	    <hr>
+	    <% @writings.each do |writing| %>
+		<iframe src=<%= writing.url %> style="width:748px; height:700px; overflow-y: hidden" frameborder="0" scrolling="no" seamless="seamless"></iframe>
+	    <% end %>
+	</div>
+    </div>
+    <hr>
+</body>

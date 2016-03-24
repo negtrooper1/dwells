@@ -12,7 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.turbolinks
 //= require turbolinks
+//= require phaser
 //= require_tree .
 //= require jquery.colorbox
-//= require phaser

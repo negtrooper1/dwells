@@ -1,9 +1,3 @@
-/*!
- * Start Bootstrap - Stylish Portfolio Bootstrap Theme (http://startbootstrap.com)
- * Code licensed under the Apache License v2.0.
- * For details, see http://www.apache.org/licenses/LICENSE-2.0.
- */
-
 /* Global Styles */
 
 html,
@@ -17,7 +11,6 @@ body {
 }
 
 .text-vertical-center {
-    display: table-cell;
     text-align: center;
     vertical-align: middle;
 }
@@ -26,7 +19,7 @@ body {
     margin: 0;
     padding: 0;
     font-size: 4.5em;
-    font-weight: 700;
+    font-weight: 100;
 }
 
 /* Custom Button Styles */
@@ -61,6 +54,14 @@ body {
 
 hr.small {
     max-width: 100px;
+}
+
+/* Nav Heads */
+
+.nav_head a {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 /* Side Menu */
@@ -148,6 +149,22 @@ hr.small {
     margin: 5px 5px 0 0;
 }
 
+/* New Header */
+.header2 {
+    display: table;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    font-family: 'Poiret One', cursive;
+    font-weight: 100;
+    padding: 25px 0;
+    cursor: default;
+}
+
+h2 {
+    font-weight: 200;
+}
+
 /* Header */
 
 .header {
@@ -220,10 +237,21 @@ hr.small {
     margin: 10px;
 }
 
+/* Container */
+
+.container-fluid {
+    min-height: 100%;
+}
+
 /* Footer */
 
 footer {
-    padding: 100px 0;
+    position: relative;
+    margin-top: 35px;
+}
+
+footer h4 {
+    cursor: pointer;
 }
 
 @mixin box_sizing {

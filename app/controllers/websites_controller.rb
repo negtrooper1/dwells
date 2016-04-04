@@ -39,7 +39,7 @@ class WebsitesController < ApplicationController
   end
     
   private
-2
+
   def website_params
     params.require(:website).permit(:title, :body, :site_url, :subtitle, :logo_link)
   end

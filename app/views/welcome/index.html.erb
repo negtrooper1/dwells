@@ -1,98 +1,66 @@
-<body>
-    <!-- Header -->
-    <header id="top" class="header">
-        <div class="text-vertical-center">
-            <a id="launcher" href="#about"><h1>Devon Wells</h1></a>
-        </div>
-    </header>
-
-    <!-- About -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-		  <span class="fa-stack fa-4x">
-		    <i class="fa fa-circle fa-stack-2x"></i>
-		    <i class="fa fa-code fa-spin fa-stack-1x text-primary"></i>
-		  </span>
-                    <h2>Roanoke raised, Oberlin Computer Science alum, wandering Wisconsin. </h2>
-                </div>
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container -->
-    </section>
-
-    <!-- Expressions -->
-    <section id="expressions" class="expressions bg-primary">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-lg-10 col-lg-offset-1">
-                    <h2>Expression</h2>
-		    <h4>Here are some ways I like to express myself and others.</h4>
-                    <hr class="small">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-6">
-                            <div class="service-item">
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-desktop fa-stack-1x text-primary"></i>
-                            </span>
-                                <h4>
-                                    <strong>Web Design</strong>
-                                </h4>
-                                <p>A good friend once told me "There are a lot of hipsters out there with a lot of great ideas and the programming knowledge of a garbage can." At the least, he was right about the ideas.</p>
-                                <a href="/websites" class="btn btn-light">Gallery</a>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="service-item">
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-paint-brush fa-stack-1x text-primary"></i>
-                            </span>
-                                <h4>
-                                    <strong>Digital Art</strong>
-                                </h4>
-                                <p>Whether it's Photoshop, Illustrator, GIMP, Procreate, pen, pencil, walls, or napkins, I'll never get tired of drawing.</p>
-                                <a href="/dart/arthome" class="btn btn-light">Gallery</a>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="service-item">
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-gamepad fa-stack-1x text-primary"></i>
-                            </span>
-                                <h4>
-                                    <strong>Game Design</strong>
-                                </h4>
-                                <p>I've played and made games since I was old enough to use a computer. When people ask me if I had to pick one form of media to stick to, I always reply Game Design. Why? Because it combines all of them.</p>
-                                <a href="/gdesign/gamehome" class="btn btn-light">Gallery</a>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="service-item">
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-pencil fa-stack-1x text-primary"></i>
-                            </span>
-                                <h4>
-                                    <strong>Writing</strong>
-                                </h4>
-                                <p>"Either write something worth reading or do something worth writing."<br>--Benjamin Franklin</p>
-                                <a href="/writings" class="btn btn-light">Gallery</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.row (nested) -->
-                </div>
-                <!-- /.col-lg-10 -->
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container -->
-    </section>
-</body>
-
-</html>
+<div class="row-fluid">
+    <div class="col-md-8 col-md-offset-2">
+	<div id="head" class="header2 text-vertical-center">
+	    <h1>Devon Wells</h1>
+	</div>
+	<hr class="small">
+	
+	<div class="row-fluid">
+	    <!-- Headings -->
+	    <div id="web_head" class="col-md-4 text-vertical-center nav_head">
+		<a><h2>Web Design</h2></a>
+	    </div>
+	    <div id="art_head" class="col-md-4 text-vertical-center nav_head">
+		<a><h2>Digital Art</h2></a>
+	    </div>
+	    <div id="writing_head" class="col-md-4 text-vertical-center nav_head">
+		<a><h2>Writing</h2></a>
+	    </div>
+	    
+	    <!-- Content -->
+	    <div id="content" class="row-fluid">
+		<!-- Web Design -->
+		<div id="web" class="col-md-10 col-md-offset-1">
+		    <% @websites.each do |website| %>
+			<div class="row">
+			    <div class="col-md-7", id=<%= website.title + "_col" %>>
+				<%= link_to(website.site_url) do %>
+				    <%= image_tag website.logo_link, id: website.title + "_img", class: "img-responsive" %>
+				<% end %>
+			    </div>
+			    <div class="col-md-5">
+				<h3><%= website.title %></h3>
+				<h4><%= website.subtitle %></h4>
+				<p><%= website.body %></p>
+				<br>
+				<%= link_to(website.site_url, class: "btn btn-primary") do %>
+				    View Site<i class="fa fa-arrow-right"></i>
+				<% end %>
+			    </div>
+			</div>
+			<hr>
+		    <% end %>
+		</div>
+		
+		<!-- Digital Art -->
+		<div id="art" class="col-md-10 col-md-offset-1 text-vertical-center">
+		    <% @images.each do |image| %>
+			<div class="col-lg-3 col-md-4 col-xs-6 thumb">
+			    <% pic = "gallery/#{image.split('/').last}" %>
+			    <%= link_to image_path(pic), { :class => "thumbnail"} do %>
+				<%= image_tag pic, alt: pic %>
+			    <% end %>
+			</div>
+		    <% end %>
+		</div>
+		
+		<!-- Writing -->
+		<div id="writing" class="col-md-10 col-md-offset-1 text-vertical-center">
+		    <% @writings.each do |writing| %>
+			<iframe src=<%= writing.url %> style="width:748px; height:748px; overflow-y: hidden" frameborder="0" scrolling="no" seamless="seamless"></iframe>
+		    <% end %>
+		</div>
+	    </div>
+	</div>
+    </div>
+</div>

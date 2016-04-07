@@ -1,7 +1,7 @@
-<h1><%= @post.title %></h1>
-
-<div><%= @post.body %></div>
-<br>
-<%= link_to "Edit Post", edit_post_path(@post) %>
-
-<%= link_to "Delete Post", post_path(@post), method: :delete, data: { confirm: "Are you sure?"} %>
+<div class="row-fluid">
+  <div class="col-md-12">
+    <h1><%= @post.title %></h1>
+    <div><%= simple_format(@post.body) %></div>
+    <br>
+  </div>
+</div>

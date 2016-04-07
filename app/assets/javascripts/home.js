@@ -14,7 +14,7 @@ $(document).ready(function(){
 	$(this).siblings(".nav_head").fadeTo("slow",0.15);
 
 	// Fade header
-	$("#splash_photo").parent().fadeOut("slow");
+	$("#splash_photo").parent().slideUp();
 
 	// Fade out other content and use callback to fade in corresponding content
 	var $id = '#' + $(this).attr("id").split("_", 1);

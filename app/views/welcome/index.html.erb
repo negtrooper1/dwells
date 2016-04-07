@@ -22,15 +22,15 @@
 		<div id="web" class="col-md-10 col-md-offset-1">
 		    <% @websites.each do |website| %>
 			<div class="row">
-			    <div class="col-md-7", id=<%= website.title + "_col" %>>
+			    <div class="col-md-5", id=<%= website.title + "_col" %>>
 				<%= link_to(website.site_url) do %>
-				    <%= image_tag website.logo_link, id: website.title + "_img", class: "img-responsive" %>
+				    <%= image_tag website.logo_link, id: website.title + "_img", class: "img-responsive img-rounded" %>
 				<% end %>
 			    </div>
-			    <div class="col-md-5">
+			    <div class="col-md-7">
 				<h3><%= website.title %></h3>
 				<h4><%= website.subtitle %></h4>
-				<p><%= website.body %></p>
+				<p><%= simple_format(website.body) %></p>
 				<br>
 				<%= link_to(website.site_url, class: "btn btn-primary") do %>
 				    View Site<i class="fa fa-arrow-right"></i>
@@ -55,8 +55,22 @@
 		
 		<!-- Writing -->
 		<div id="writing" class="col-md-10 col-md-offset-1 text-vertical-center">
+		    <div class="col-md-12">
+			<h2><%= @post.title %></h2>
+			<br>
+			<div class="text-vertical-left"><%= simple_format(@post.body) %></div>
+			<br>
+			<h4><%= @post.created_at.strftime("%d %b. %Y") %></h4>
+			<%= link_to "more posts", "/posts"%>
+			<hr>
+		    </div>
+		    
 		    <% @writings.each do |writing| %>
-			<iframe src=<%= writing.url %> style="width:748px; height:748px; overflow-y: hidden" frameborder="0" scrolling="no" seamless="seamless"></iframe>
+			<div class="row-fluid">
+			    <div class="col-md-12">
+				<iframe src=<%= writing.url %> style="width:748px; height:748px; overflow-y: hidden" frameborder="0" scrolling="no" seamless="seamless"></iframe>
+			    </div>
+			</div>
 		    <% end %>
 		</div>
 	    </div>

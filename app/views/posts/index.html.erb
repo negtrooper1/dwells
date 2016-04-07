@@ -1,6 +1,22 @@
-<% @posts.each do |post| %>
-    <h2><%= post.title %></h2>
-    <div><%= truncate(post.body, :length => 250) %></div>
-    <br>
-    <%= link_to "Read Post", post %>
-<% end %>
+<div class="row-fluid">
+    <div class="col-md-8 col-md-offset-2">
+	<div id="head" class="header2 text-vertical-center">
+	    <h1>Blog</h1>
+	</div>
+	<hr class="small">
+	<div id="content" class="row-fluid">
+	    <div id="blog" class="col-md-10 col-md-offset-1">
+		<% @posts.each do |post| %>
+		    <div class="row-fluid">
+			<div class="col-md-12">
+			    <h2><%= post.title %></h2>
+			    <div><%= simple_format(truncate(post.body, :length => 250)) %></div>
+			    <br>
+			    <%= link_to "Read Post", post %>
+			</div>
+		    </div>
+		<% end %>
+	    </div>
+	</div>
+    </div>    
+</div>

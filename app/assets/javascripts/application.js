@@ -15,5 +15,8 @@
 //= require jquery.turbolinks
 //= require turbolinks
 //= require phaser
+//= require home
+//= require footer
+//= require header
 //= require_tree .
 //= require jquery.colorbox

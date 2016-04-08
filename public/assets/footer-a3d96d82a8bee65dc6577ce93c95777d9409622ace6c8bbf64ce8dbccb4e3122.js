@@ -1,0 +1,1 @@
+$(document).ready(function(){var t=$("footer");t.find("ul").hide(),t.find("p").hide(),t.find("h4").fadeTo("slow",.5),t.find("h4").click(function(){$(this).siblings().not("hr").fadeToggle()})});

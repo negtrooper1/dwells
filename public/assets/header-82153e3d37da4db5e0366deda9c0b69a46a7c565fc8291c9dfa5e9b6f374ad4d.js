@@ -1,0 +1,1 @@
+$(document).ready(function(){"undefined"!=typeof window.orientation&&$("#splash_photo").hide()});

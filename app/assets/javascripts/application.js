@@ -13,10 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.turbolinks
+//= require jquery.colorbox
 //= require turbolinks
 //= require phaser
 //= require home
 //= require footer
 //= require header
+//= require colorboxHelper
 //= require_tree .
-//= require jquery.colorbox

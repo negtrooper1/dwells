@@ -1,5 +1,8 @@
 == README
 
+NOTE: This is an outdated version. My current blog is dumpling.dev built on a wordpress droplet hosted on DigitalOcean.
+I'm in the process of building a new portfolio centered around React.
+
 Devon Wells' Creative Portfolio
 
 TODO: 
